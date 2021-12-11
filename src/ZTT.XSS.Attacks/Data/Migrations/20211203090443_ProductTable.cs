@@ -35,7 +35,7 @@ namespace ZTT.XSS.Attack.Data.Migrations
             migrationBuilder.Sql(@"
 insert [dbo].[Product]
 (Id, Name, Description, Cost)
-values('c7aeecbe-d4e9-4a7e-849c-aa9fdf27755d', 'New Testla Car for $20k', 'Brand new CAR x-showroom price.', 20000)
+values('c7aeecbe-d4e9-4a7e-849c-aa9fdf27755d', 'New Tesla Car for $20k', 'Brand new CAR x-showroom price.', 20000)
 ");
         }
     }
