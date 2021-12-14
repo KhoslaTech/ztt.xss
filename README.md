@@ -9,19 +9,19 @@ The code in each of the projects contains implementation of a simple Classifieds
 ### ZTT.XSS.Attack
 The code sample in this project simulates [three kinds of XSS attacks](https://aspsecuritykit.net/guides/protecting-your-users-against-cross-site-scripting-xss-attacks/#types-of-xss):
 
-- Stored XSS: To simulate this attack, you can use the following XSS code which you need to put in the product description field. For step-by-step instructions, check out [this article](https://ASPSecurityKit.net/blog/understand-cross-site-scripting-xss-with-examples-zero-trust-thinking/#stored-xss).
+- Stored XSS: To simulate this attack, you can use the following XSS code which you need to put in the product description field. For step-by-step instructions, check out [this article](https://ASPSecurityKit.net/blog/understand-cross-site-scripting-xss-by-examples-zero-trust-thinking/#stored-xss).
 
 	```js
 	<script>alert(document.cookie.substr(document.cookie.indexOf('AspNetCore.Identity.Application')));</script>
 	```
 
-- Reflected XSS: For this attack we are going to simulate it via a link which does not exist in the app such as below and hence results in a `404`. For step-by-step instructions, check out [this article](https://ASPSecurityKit.net/blog/understand-cross-site-scripting-xss-with-examples-zero-trust-thinking/#reflected-xss).
+- Reflected XSS: For this attack we are going to simulate it via a link which does not exist in the app such as below and hence results in a `404`. For step-by-step instructions, check out [this article](https://ASPSecurityKit.net/blog/understand-cross-site-scripting-xss-by-examples-zero-trust-thinking/#reflected-xss).
 
 	```bash
 	https://localhost:[port]/Products1<script>alert(document.cookie.substr(document.cookie.indexOf('AspNetCore.Identity.Application')));</script>
 	```
 
-- DOM Based XSS: This attack happens on the client side. We simulate it by manipulating a feature of adding discount code to a product via the query string in the URL such as given below. For step-by-step instructions, check out [this article](https://ASPSecurityKit.net/blog/understand-cross-site-scripting-xss-with-examples-zero-trust-thinking/#dom-based-xss).
+- DOM Based XSS: This attack happens on the client side. We simulate it by manipulating a feature of adding discount code to a product via the query string in the URL such as given below. For step-by-step instructions, check out [this article](https://ASPSecurityKit.net/blog/understand-cross-site-scripting-xss-by-examples-zero-trust-thinking/#dom-based-xss).
 
 	```bash
 	https://localhost:[port]/Products/Details/c7aeecbe-d4e9-4a7e-849c-aa9fdf27755d?discountCode=magic42<script>alert(document.cookie.substr(document.cookie.indexOf(%27AspNetCore.Identity.Application%27)));</script>
