@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20211217113325_ProductTable.cs" />
+    <Compile Remove="Migrations\20211217113325_ProductTable.Designer.cs" />
+    <Compile Remove="Migrations\20211217114836_ProductPermissions.cs" />
+    <Compile Remove="Migrations\20211217114836_ProductPermissions.Designer.cs" />
+    <Compile Remove="Migrations\20211217181833_ProductTable.cs" />
+    <Compile Remove="Migrations\20211217181833_ProductTable.Designer.cs" />
+    <Compile Remove="Migrations\20211217181928_ProductPermissions.cs" />
+    <Compile Remove="Migrations\20211217181928_ProductPermissions.Designer.cs" />
+    <Compile Remove="Migrations\20211217182326_ProductTable.cs" />
+    <Compile Remove="Migrations\20211217182326_ProductTable.Designer.cs" />
+    <Compile Remove="Migrations\20211217182338_ProductPermissions.cs" />
+    <Compile Remove="Migrations\20211217182338_ProductPermissions.Designer.cs" />
+    <Compile Remove="Migrations\20211220035142_ProductTable.cs" />
+    <Compile Remove="Migrations\20211220035142_ProductTable.Designer.cs" />
+    <Compile Remove="Migrations\20211220035202_ProductPermissions.cs" />
+    <Compile Remove="Migrations\20211220035202_ProductPermissions.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ASPSecurityKit.NetCore" Version="3.0.5" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="6.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.22" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.22">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+</Project>

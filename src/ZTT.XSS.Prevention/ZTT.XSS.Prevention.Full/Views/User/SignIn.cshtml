@@ -1,0 +1,59 @@
+﻿@model LoginModel
+
+@{
+    ViewBag.Title = "Log in";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <section class="form">
+            @using (Html.BeginForm(new { ReturnUrl = @ViewBag.ReturnUrl }))
+            {
+                @Html.AntiForgeryToken()
+
+                <h4>Use a local account to log in.</h4>
+                <hr />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <fieldset>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email, new { @class = "label-big" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Please enter email" })
+                        <span asp-validation-for="@Model.Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "label-big" })
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Please enter password" })
+                        <span asp-validation-for="@Model.Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-control-static">
+                        @Html.CheckBoxFor(m => m.RememberMe)
+                        @Html.LabelFor(m => m.RememberMe)
+                    </div>
+
+                    <br />
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Sign In</button>
+                    </div>
+
+                    <nav class="form-group">
+                        @Html.ActionLink("Sign Up", "SignUp") if you don't have an account.
+                    </nav>
+
+                </fieldset>
+            }
+        </section>
+    </div>
+    <div class="col-md-6">
+        <section>
+        </section>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
