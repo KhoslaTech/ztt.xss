@@ -23,6 +23,10 @@
     <Compile Remove="Migrations\20211220035202_ProductPermissions.Designer.cs" />
     <Compile Remove="Migrations\20211220041001_ProductPermissions.cs" />
     <Compile Remove="Migrations\20211220041001_ProductPermissions.Designer.cs" />
+    <Compile Remove="Migrations\20211220050838_ProductPermissions.cs" />
+    <Compile Remove="Migrations\20211220050838_ProductPermissions.Designer.cs" />
+    <Compile Remove="Migrations\20211220053313_ProductPermissions.cs" />
+    <Compile Remove="Migrations\20211220053313_ProductPermissions.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

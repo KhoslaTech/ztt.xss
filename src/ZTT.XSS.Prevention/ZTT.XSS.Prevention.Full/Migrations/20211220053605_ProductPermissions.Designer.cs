@@ -10,7 +10,7 @@ using ZTT.XSS.Prevention.Full.DataModels;
 namespace ZTT.XSS.Prevention.Full.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20211220050838_ProductPermissions")]
+    [Migration("20211220053605_ProductPermissions")]
     partial class ProductPermissions
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
