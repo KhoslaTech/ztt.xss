@@ -8,19 +8,19 @@ namespace ZTT.XSS.Prevention.Full.Migrations
         {
 	        var permissions = new[]
 	        {
-		        "('IndexProducts', 'Product', 'List Products', 0)", // general permission
-		        "('CreateProducts', 'Product', 'Add a new Product', 0)", // general permission
-		        "('UpdateProducts', 'Product', 'Modify Product', 1)", // instance permission
-		        "('DeleteProducts', 'Product', 'Delete Product', 1)", // instance permission
+		        "('IndexProduct', 'Product', 'List Products', 0)", // general permission
+		        "('CreateProduct', 'Product', 'Add a new Product', 0)", // general permission
+		        "('UpdateProduct', 'Product', 'Modify Product', 1)", // instance permission
+		        "('DeleteProduct', 'Product', 'Delete Product', 1)", // instance permission
 		        "('ClassifiedUser', 'User', 'Manager ClassifiedUser permissions', 0)" // general permission
 	        };
 
 	        var impliedPermissions = new[]
 	        {
-		        "('CreateProducts', 'IndexProducts')",
-		        "('UpdateProducts', 'CreateProducts')",
-		        "('DeleteProducts', 'UpdateProducts')",
-		        "('ClassifiedUser', 'DeleteProducts')"
+		        "('CreateProduct', 'IndexProduct')",
+		        "('UpdateProduct', 'CreateProduct')",
+		        "('DeleteProduct', 'UpdateProduct')",
+		        "('ClassifiedUser', 'DeleteProduct')"
 	        };
 
 	        var permissionsSql = new[]

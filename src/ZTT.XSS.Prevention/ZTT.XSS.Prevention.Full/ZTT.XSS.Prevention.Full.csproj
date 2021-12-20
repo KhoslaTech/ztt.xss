@@ -21,6 +21,8 @@
     <Compile Remove="Migrations\20211220035142_ProductTable.Designer.cs" />
     <Compile Remove="Migrations\20211220035202_ProductPermissions.cs" />
     <Compile Remove="Migrations\20211220035202_ProductPermissions.Designer.cs" />
+    <Compile Remove="Migrations\20211220041001_ProductPermissions.cs" />
+    <Compile Remove="Migrations\20211220041001_ProductPermissions.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

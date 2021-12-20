@@ -70,7 +70,8 @@ namespace ZTT.XSS.Prevention.Full.Controllers
 			        Id = Guid.NewGuid(),
 			        Name = newProduct.Name,
 			        Description = newProduct.Description,
-			        OwnerId = this.UserService.CurrentUserId
+			        OwnerId = this.UserService.CurrentUserId,
+                    Cost = newProduct.Cost
 		        };
 
 		        _context.Add(dbProduct);
@@ -82,15 +83,15 @@ namespace ZTT.XSS.Prevention.Full.Controllers
         }
 
         // GET: Products/Delete/5
-        public async Task<IActionResult> Delete(Guid? productId)
+        public async Task<IActionResult> Delete(Guid? id)
         {
-            if (productId == null)
+            if (id == null)
             {
                 return NotFound();
             }
 
             var dbProduct = await _context.Products
-                .FirstOrDefaultAsync(m => m.Id == productId);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (dbProduct == null)
             {
                 return NotFound();
@@ -102,9 +103,9 @@ namespace ZTT.XSS.Prevention.Full.Controllers
         // POST: Products/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(Guid productId)
+        public async Task<IActionResult> Delete(Guid id)
         {
-            var dbProduct = await _context.Products.FindAsync(productId);
+            var dbProduct = await _context.Products.FindAsync(id);
             _context.Products.Remove(dbProduct);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
