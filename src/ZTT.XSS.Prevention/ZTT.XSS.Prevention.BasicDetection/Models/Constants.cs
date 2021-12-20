@@ -2,6 +2,6 @@
 {
 	public class Constants
 	{
-		public const string XssPattern = @"(<[a-zA-Z/!?])|(&[a-zA-Z#])";
+		public const string XssPattern = @"^(?:(?!(\<[a-zA-Z/!?])|(&[a-zA-Z#]))[\w\W])*$";
 	}
 }
