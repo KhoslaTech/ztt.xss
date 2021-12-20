@@ -24,11 +24,11 @@ namespace ZTT.XSS.Prevention.Full.Controllers
 
         // GET: Products
         [PossessesPermissionCode]
-        public async Task<IActionResult> Index([FromQuery(Name = "searchTerm")] string searchTerm)
+        public async Task<IActionResult> Index([FromQuery(Name = "term")] string term)
         {
 	        return View(await _context.Products.Where(x =>
-			        string.IsNullOrEmpty(searchTerm) || x.Name.Contains(searchTerm) ||
-			        x.Description.Contains(searchTerm))
+			        string.IsNullOrEmpty(term) || x.Name.Contains(term) ||
+			        x.Description.Contains(term))
 		        .ToListAsync());
         }
 
