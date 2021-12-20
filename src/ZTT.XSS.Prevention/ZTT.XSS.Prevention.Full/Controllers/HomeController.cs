@@ -2,7 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using ASPSecurityKit;
 using ASPSecurityKit.Net;
+using Microsoft.AspNetCore.Diagnostics;
 
 namespace ZTT.XSS.Prevention.Full.Controllers
 {
@@ -29,7 +31,15 @@ namespace ZTT.XSS.Prevention.Full.Controllers
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
 		{
-			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+			var exceptionHandlerPathFeature = HttpContext.Features.Get<IExceptionHandlerPathFeature>();
+
+			var message = string.Empty;
+			if (exceptionHandlerPathFeature?.Error is AuthFailedException authEx)
+			{
+				message = authEx.Message;
+			}
+
+			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier, Message = message });
 		}
 	}
 }

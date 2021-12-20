@@ -34,6 +34,7 @@ namespace ZTT.XSS.Prevention.Full.Controllers
 
         // GET: Products/Details/5
         [AuthAction("Index")]
+        [SkipActivityAuthorization]
         public async Task<IActionResult> Details(Guid? id)
         {
             if (id == null)

@@ -68,6 +68,7 @@ namespace ZTT.XSS.Prevention.Full
 
 			var settings = app.ApplicationServices.GetService<INetSecuritySettings>();
 			settings.MustHaveBeenVerified = false;
+			settings.ThrowSecurityFailureAsException = true;
 		}
 
 	}
