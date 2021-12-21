@@ -27,6 +27,28 @@ The code sample in this project simulates [three kinds of XSS attacks](https://a
 	https://localhost:[port]/Products/Details/c7aeecbe-d4e9-4a7e-849c-aa9fdf27755d?discountCode=magic42<script>alert(document.cookie.substr(document.cookie.indexOf(%27AspNetCore.Identity.Application%27)));</script>
 	```
 
+### ZTT.XSS.Prevention.BasicDetection
+The code sample in this project has a RegularExpressionValidator based detection to prevent XSS injection via input. 
+
+To test it in action, you can use the following XSS code which you need to put in the product description field. For step-by-step instructions, check out [this article](https://aspsecuritykit.net/blog/learn-about-defending-against-cross-site-scripting-xss-input-injection-by-examples-zero-trust-thinking/#detect-input-injection).
+```js
+<script>alert(document.cookie.substr(document.cookie.indexOf('AspNetCore.Identity.Application')));</script>
+```
+
+### ZTT.XSS.Prevention.Full
+The code sample in this project has a complete solution (except CSP) based on Zero Trust approach to defend against XSS in both input and output. 
+
+To test it in action, you can use the following XSS code snippets:
+- Stored XSS input injection (step-by-step instructions to try it out is available on [this article](https://aspsecuritykit.net/blog/learn-about-defending-against-cross-site-scripting-xss-input-injection-by-examples-zero-trust-thinking/#scale-it-with-aspsecuritykit).
+```js
+<script>alert(document.cookie.substr(document.cookie.indexOf('AskAuth')));</script>
+```
+
+- Reflected XSS input injection (step-by-step instructions to try it out is available on [this article](https://aspsecuritykit.net/blog/learn-about-defending-against-cross-site-scripting-xss-input-injection-by-examples-zero-trust-thinking/#check-out-with-a-new-addition).
+```bash
+	https://localhost:[port]/Product/?term=iPhone<script>alert(document.cookie.substr(document.cookie.indexOf(%27AskAuth%27)));</script>
+```
+
 Running the sample
 --------------------
 
