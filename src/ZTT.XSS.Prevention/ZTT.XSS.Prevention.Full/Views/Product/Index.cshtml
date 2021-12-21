@@ -1,4 +1,5 @@
-﻿@model IEnumerable<ZTT.XSS.Prevention.Full.DataModels.DbProduct>
+﻿@using ZTT.XSS.Prevention.Full.Infrastructure
+@model IEnumerable<ZTT.XSS.Prevention.Full.DataModels.DbProduct>
 
 @{
     ViewData["Title"] = "Products";
@@ -30,12 +31,16 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Cost)
             </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+			<td>
+				@if (Context.UserService().PossessesPermission("EditProduct"))
+				{
+					<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+				}
+				<a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+				<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+			</td>
+
+		</tr>
 }
     </tbody>
 </table>

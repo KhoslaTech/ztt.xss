@@ -23,7 +23,6 @@ namespace ZTT.XSS.Prevention.Full.Controllers
         }
 
         // GET: Products
-        [PossessesPermissionCode]
         public async Task<IActionResult> Index([FromQuery(Name = "term")] string term)
         {
 	        return View(await _context.Products.Where(x =>
@@ -33,7 +32,6 @@ namespace ZTT.XSS.Prevention.Full.Controllers
         }
 
         // GET: Products/Details/5
-        [AuthAction("Index")]
         [SkipActivityAuthorization]
         public async Task<IActionResult> Details(Guid? id)
         {
