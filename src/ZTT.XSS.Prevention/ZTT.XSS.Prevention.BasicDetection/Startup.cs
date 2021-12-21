@@ -33,7 +33,6 @@ namespace ZTT.XSS.Prevention.BasicDetection
 					Configuration.GetConnectionString("DefaultConnection")));
 			services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
 				.AddEntityFrameworkStores<ClassifiedsDbContext>();
-			services.ConfigureApplicationCookie(o => o.Cookie.HttpOnly = false);
 			services.AddControllersWithViews();
 			services.AddRazorPages();
 		}
