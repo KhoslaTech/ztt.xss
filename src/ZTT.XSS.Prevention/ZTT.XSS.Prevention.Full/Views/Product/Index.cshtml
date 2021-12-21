@@ -31,14 +31,19 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Cost)
             </td>
-			<td>
-				@if (Context.UserService().PossessesPermission("EditProduct"))
-				{
-					<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-				}
-				<a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-				<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-			</td>
+            <td>
+                @if (Context.UserService().IsAuthorized("EditProduct", item.OwnerId))
+                {
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> <span>|</span>
+                }
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+
+                @if (Context.UserService().IsAuthorized("DeleteProduct", item.OwnerId))
+                {
+                    <span>|</span>
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                }
+            </td>
 
 		</tr>
 }

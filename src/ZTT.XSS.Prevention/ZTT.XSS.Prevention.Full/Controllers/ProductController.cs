@@ -23,6 +23,7 @@ namespace ZTT.XSS.Prevention.Full.Controllers
         }
 
         // GET: Products
+        [SkipActivityAuthorization]
         public async Task<IActionResult> Index([FromQuery(Name = "term")] string term)
         {
 	        return View(await _context.Products.Where(x =>
